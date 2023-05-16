@@ -1,0 +1,26 @@
+package cap05.exemplos;
+
+import javax.swing.*;
+import java.util.Arrays;
+
+public class ArrayBuscaBinaria {
+    public static void main(String[] args) {
+        int[] n = new int[10000];
+        for(int i = 0; i < n.length; i++){
+            n[i] = (int) (Math.random() * 10000);
+        }
+        int valor = Integer.parseInt(JOptionPane.showInputDialog(null, "Forneça um valor: "));
+        String r = "Valor não encontrado";
+        for (int i = 0; i < n.length; i++){
+            if(n[i] == valor){
+                r = "Valor encontrado na posição "+ i;
+                break;
+            }
+        }
+        System.out.println(r);
+
+        Arrays.sort(n);
+        int pos = Arrays.binarySearch(n, valor);
+        System.out.println("Nova posição ordenada " + pos);
+    }
+}
